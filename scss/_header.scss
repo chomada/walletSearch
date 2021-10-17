@@ -1,0 +1,31 @@
+@import 'variables';
+
+nav{
+    background-color: $color-nav;
+}
+
+
+.navLista{
+    margin:1rem;
+}
+
+#titulo{
+    
+    text-align: center;
+    margin:0 auto;
+    margin-top: 5rem;
+    width: 75%;
+    color:$color-principal;
+    
+}
+.linkActivo{
+    font-size:larger;
+}
+
+
+li{
+    &:hover{
+        text-decoration: underline;
+    }
+
+}

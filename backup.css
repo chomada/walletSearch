@@ -1,0 +1,401 @@
+*{
+    margin:0;
+    padding: 0;
+} 
+html{
+    scroll-behavior: smooth;
+    
+    
+}
+h1, h2, h3, h4, h5 {
+    font-family: 'Mulish', sans-serif !important;
+    color:#212529 !important;
+
+}
+.alerta-fav{
+    
+    text-align: center;
+    margin: 0 auto;
+}
+#proyectos-favoritos{
+    
+    padding-bottom: 110px;
+}
+body { 
+    font-family: 'Mulish', sans-serif !important;
+    
+    background-color:  white!important;
+    transition: .3s ease all;
+    
+    
+}
+ body.dark{
+    background-color: black !important;
+    
+    
+}
+body.dark nav{
+    background-color: #212529;
+
+}
+body.dark .separador{
+    border-top:  2px solid #212529;
+}
+body.dark p{
+    color:#cbcbcb;
+}
+body.dark h1{
+    color:#cbcbcb !important;
+}
+body.dark h2{
+    color:#cbcbcb !important;
+}
+body.dark h4{
+    color:#cbcbcb !important;
+}
+body.dark h5{
+    color:#cbcbcb !important;
+}
+body.dark .btn-outline-danger{
+    background-color:#343d5b;
+    border-color: #343d5b;
+    color:white;
+}
+body.dark .btn-outline-danger:hover{
+    background-color:white;
+    border-color: #212529;
+    color:#212529;
+}
+body.dark .btn-danger{
+    background-color:#343d5b;
+    border-color: #343d5b;
+    
+}
+body.dark .btn-light {
+    background-color: #343d5b;
+
+}
+body.dark .btn-outline-dark{
+    background-color:#212529;
+    border-color: white;
+    color:white;
+}
+body.dark .btn-outline-dark:hover{
+    background-color:white;
+    border-color: #212529;
+    color:#212529;
+}
+#verSaldo{
+    width: 60%;
+    
+    
+}
+body::after {
+    content: ""; 
+    background: url(imagenes/cryptoImage2.jpg) ;
+    
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed; 
+    opacity: 0.08; top: 0; left: 0; bottom: 0; right: 0; position: absolute; z-index: -1;
+    
+    
+ }
+ 
+
+.navLista{
+    margin:1rem;
+}
+
+#titulo{
+    
+    text-align: center;
+    margin:0 auto;
+    margin-top: 5rem;
+    width: 75%;
+    
+    
+}
+
+nav{
+    background-color: rgb(255 105 105);
+    
+}
+#tituloFavoritos{
+    text-align: center;
+    
+    margin-top: 5rem;
+    
+    
+
+}
+
+.menu{
+    display: inline-block;
+}
+.seccionPrincipal{
+   
+   width: 80%;
+    margin: 1rem ;
+    margin-top: 4rem;
+    
+    display: flex;
+
+}
+.botones-red{
+    margin:1px;
+}
+.balance{
+    
+    margin: 0 auto;
+    
+    
+
+}
+
+.red{
+  
+    margin: 0 auto;
+    display:flex;
+    
+    
+    
+    
+
+}
+.linkActivo{
+    font-size:larger;
+}
+
+
+li:hover{
+    text-decoration: underline;
+}
+
+
+.resultado-wallet{
+   
+    margin:0 auto;
+    
+    text-align: center;
+    width: 80%;
+    display: flex;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    
+    padding: 2rem;
+}
+
+
+#infoAdicional,#linksUtiles{
+    
+    text-decoration: none;
+    text-align: center;
+    margin-left:2rem;
+    margin-top: 2rem;
+    width: 30%;
+
+}
+.card-body{
+    
+    text-align: center;
+}
+
+.separador{
+  
+    margin:0 auto;
+    margin-top: 4rem;
+    width: 90%;
+    border-top:  2px solid rgb(255 105 105);
+}
+.verMas{
+    color:rgb(37, 3, 3);
+}
+
+
+
+footer div ul li{
+    list-style: none;
+    
+}
+.contenedor-grid{
+    
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(auto, 200px);
+    grid-column-gap: 2rem;
+    grid-row-gap: 4rem;
+    margin:7rem;
+    
+}
+.proyecto-favorito:hover{
+    
+    transform: scale(1.2,1.2);
+}
+.proyecto-chico{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    color:#3e3e3e;
+    
+   
+    
+    transition: all 1s;
+    
+}
+h4{
+    margin: 1rem ;
+}
+.card-img, .card-img-bottom, .card-img-top{
+    width: 80% !important;
+}
+
+.switch{
+    
+    background: #343D5B;
+    border-radius:1000px;
+    border:none;
+    position:relative;
+    cursor:pointer;
+    display: flex;
+    outline: none;
+    
+
+}
+.switch::after{
+    content:'';
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background: #F1F1F1;
+    top:0;
+    left: 0;
+    right: unset;
+    border-radius: 100px;
+    transition: .3s ease all;
+    box-shadow: 0px 0px 2px 2px rgba(0,0,0,.2);
+}
+  .suichardi{
+     background: rgb(255 105 105);
+     color:#000;
+ }
+  .suichardi::after{
+     right:0;
+     left: unset;
+
+ }
+
+.switch span{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    background: none;
+    color:#fff;
+
+}
+footer h2 a #footerTitulo{
+    color:white !important;
+}
+.footer-07 {
+    background: #222222; }
+    .footer-07 a {
+      color: rgb(255 105 105); }
+    .footer-07 p {
+      color: white; }
+    .footer-07 .footer-heading {
+      font-size: 30px;
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 30px; }
+      .footer-07 .footer-heading .logo {
+        color: #fff !important; }
+    .footer-07 .menu {
+      margin-bottom: 30px; }
+      .footer-07 .menu a {
+        color: white;
+        margin: 0 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px; }
+    .footer-07 .ftco-footer-social li a {
+      background: transparent;
+      border: 1px solid rgb(255 105 105); }
+  
+@media  (max-width: 1600px){
+    
+    .seccionPrincipal{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+        margin-top: 1rem;
+        
+    }
+  
+    .balance{
+        text-align: center;
+        
+    }
+    .red{
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+    .resultado-wallet{
+        flex-wrap: wrap;
+    }
+   
+   .contenedor-grid{
+    
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            grid-template-rows: repeat(auto, 100px);
+            grid-column-gap: 2rem;
+            grid-row-gap: 2rem;
+            margin:6rem;
+    }
+    .card-img, .card-img-bottom, .card-img-top{
+        width: 50% !important;
+    }
+    .proyecto-favorito:hover{
+    
+        transform: scale(1.1,1.1);
+    }
+        
+}
+@media  (max-width: 1000px){
+
+    .seccionPrincipal{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+        margin-top: 1rem;
+        
+    }
+   
+    .balance{
+        text-align: center;
+        
+    }
+    .resultado-wallet{
+        flex-wrap: wrap;
+    }
+   
+   .contenedor-grid{
+    
+            display: grid;
+            grid-template-columns: repeat(1, auto);
+            grid-template-rows: repeat(auto, 100px);
+            grid-column-gap: 2rem;
+            grid-row-gap: 2rem;
+            margin:6rem;
+    }
+    .card-img, .card-img-bottom, .card-img-top{
+        width: 50% !important;
+    }
+    .proyecto-favorito:hover{
+    
+        transform: scale(1.1,1.1);
+    }
+        
+}
