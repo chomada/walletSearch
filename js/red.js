@@ -57,7 +57,7 @@ class Red {
             
             
             
-            verSaldo.innerHTML=`<h3 class="alert alert-warning">Actualmente te queda ${total.toFixed(8)} ${this.miRed.coin}</h3>`;
+            verSaldo.innerHTML=`<h3 class="alert alert-warning">Actualmente te queda ${Number(total.toFixed(8))} ${this.miRed.coin}</h3>`;
         }
 
         }
