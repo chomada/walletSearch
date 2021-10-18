@@ -14,7 +14,7 @@ class Red {
         this.miDark='';
         
     }
-
+    //con esto puedo cambiar el dark modo y guardarlo en el local storage
     cambiarModo(){
       let btnSwitch = document.querySelector('#switch');
 
@@ -32,6 +32,7 @@ class Red {
       }
 
     }
+    // cargo el modo oscuto o claro que haya quedado
     cargarModo(){
       
       let btnSwitch = document.querySelector('#switch');
@@ -51,11 +52,12 @@ class Red {
           if (wallet){
             this.miSaldo=200;
             let total= this.miSaldo/parseFloat(this.miRed.precio);
+          
             let verSaldo =document.getElementById("verSaldo");
             
             
             
-            verSaldo.innerHTML=`<h3 class="alert alert-warning">Actualmente te queda ${total} ${this.miRed.coin}</h3>`;
+            verSaldo.innerHTML=`<h3 class="alert alert-warning">Actualmente te queda ${total.toFixed(8)} ${this.miRed.coin}</h3>`;
         }
 
         }
