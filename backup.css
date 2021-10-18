@@ -7,6 +7,10 @@ html{
     
     
 }
+#arribaDeTodo{
+    position: absolute;
+    top:0;
+}
 h1, h2, h3, h4, h5 {
     font-family: 'Mulish', sans-serif !important;
     color:#212529 !important;
@@ -84,6 +88,10 @@ body.dark .btn-outline-dark:hover{
     background-color:white;
     border-color: #212529;
     color:#212529;
+}
+body.dark .verMas{
+    color:#cbcbcb;
+    
 }
 #verSaldo{
     width: 60%;

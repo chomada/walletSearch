@@ -14,7 +14,7 @@ class Red {
         this.miDark='';
         
     }
-    //con esto puedo cambiar el dark modo y guardarlo en el local storage
+    //con esto puedo cambiar el dark mode y guardarlo en el local storage
     cambiarModo(){
       let btnSwitch = document.querySelector('#switch');
 
@@ -32,7 +32,7 @@ class Red {
       }
 
     }
-    // cargo el modo oscuto o claro que haya quedado
+    // cargo el modo oscuro si es el que fue usado sino lo dejo como esta
     cargarModo(){
       
       let btnSwitch = document.querySelector('#switch');
@@ -42,6 +42,7 @@ class Red {
         btnSwitch.classList.add('suichardi');
         }
     }
+
     //la idea seria que al ingresar la wallet una API nos devuelva el saldo real
     //luego hago la conversion para ver saldo en dolares y en la moneda de la red
     consultarSaldo(wallet){

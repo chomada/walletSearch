@@ -6,18 +6,12 @@ if(localStorage.proyectosFavoritos){
     miRed.favoritos=JSON.parse(localStorage.proyectosFavoritos);
     
 }
+//si ya habia usado el dark mode lo cargo para no tener q tocarlo cada vez que uso la app 
 if(localStorage.darkMode){
     miRed.miDark=JSON.parse(localStorage.darkMode);
     
 }
-
-
-// const btnSwitch = document.querySelector('#switch');
-// btnSwitch.addEventListener('click',()=>{
-//     document.body.classList.toggle('dark');
-//     btnSwitch.classList.toggle('suichardi');
-    
-// })
+miRed.cargarModo()
 
 //la idea de la pagina es ingresar tu direccion de wallet y seleccionar la red en la que operas, y que te muestre el saldo que te queda en la red,etc.
 //luego tambien nos dira los mejores proyectos de la red que elegimos
@@ -99,4 +93,3 @@ const agregar =(fav)=>{
 
     miRed.agregarFavoritos(fav)
 }
-miRed.cargarModo()
