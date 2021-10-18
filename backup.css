@@ -413,6 +413,7 @@ footer h2 a #footerTitulo{
 }
 .red{
     display: grid;
+    grid-row-gap: 4px;
     
     
 }
