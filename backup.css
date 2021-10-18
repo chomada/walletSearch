@@ -143,7 +143,7 @@ nav{
 
 }
 .botones-red{
-    margin:0.5px;
+    margin:1px;
 }
 .balance{
     
@@ -385,7 +385,7 @@ footer h2 a #footerTitulo{
             grid-template-rows: repeat(auto, 100px);
             grid-column-gap: 2rem;
             grid-row-gap: 2rem;
-            margin:6rem;
+           margin:6rem;
     }
     .card-img, .card-img-bottom, .card-img-top{
         width: 50% !important;
@@ -397,8 +397,26 @@ footer h2 a #footerTitulo{
    
        
 }
-@media  (max-width: 500 px){
+@media  (max-width: 500px){
 
-    
+    .contenedor-grid{
         
+        display: grid;
+    grid-template-columns: repeat(1, auto);
+    grid-template-rows: repeat(auto, 100px);
+    grid-column-gap: 2rem;
+    grid-row-gap: 4rem;
+    
+    margin:2rem;
+    margin-top: 3rem;
+        
+}
+.red{
+    display: grid;
+    
+    
+}
+.botones-red{
+    margin:o auto;
+} 
 }
