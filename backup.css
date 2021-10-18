@@ -143,7 +143,7 @@ nav{
 
 }
 .botones-red{
-    margin:1px;
+    margin:0.5px;
 }
 .balance{
     
@@ -155,12 +155,8 @@ nav{
 
 .red{
   
-    margin: 0 auto;
-    display:flex;
-    
-    
-    
-    
+   margin: 0 auto;
+   
 
 }
 .linkActivo{
@@ -338,6 +334,7 @@ footer h2 a #footerTitulo{
         
     }
     .red{
+    
         margin-top: 2rem;
         margin-bottom: 2rem;
     }
@@ -397,5 +394,11 @@ footer h2 a #footerTitulo{
     
         transform: scale(1.1,1.1);
     }
+   
+       
+}
+@media  (max-width: 500 px){
+
+    
         
 }
