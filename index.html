@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="Encontra cuanto te queda de Gas en la wallet de tu red preferida, tambien busca los mejores proyectos y agregalos a favoritos para no perderlos de vista. Gas Smart | Selecciona tu red">
+    <meta name="keywords" content="crypto, wallet, binance, gas, smart contract, bitcoin, coin, proyect, defi, ethereum, polygon, rsk, coinbase, bnb, btc, eth, matic, criptomonedas">
     <link rel="stylesheet" href="footer/ionicons.min.css">
     <link rel="stylesheet" href="backup.css">
     <link rel="stylesheet" href="footer/footerTemplate.css">
@@ -11,12 +15,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&display=swap" rel="stylesheet">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <title >Gas Smart</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="shortcut icon" href="/imagenes/wallet.png" alt="gas">
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/96b740ba55.js" crossorigin="anonymous"></script>
+    <title >Gas Smart | Selecciona tu red</title>
+    
+
+
 
    
 
@@ -38,7 +44,7 @@
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active linkActivo" aria-current="page" href="index.html">Inicio</a>
+                      <a class="nav-link active linkActivo" aria-current="page" href="index.html"><i class="fas fa-wallet"></i> Gas Smart&nbsp </a>
                       </li>
 
 
@@ -73,8 +79,8 @@
                
               </div>
               <button class=" justify-content-end switch" id="switch" onclick="miRed.cambiarModo()">
-                <span><i class="fas fa-sun"></i></span>
-                <span><i class="fas fa-moon"></i></span>
+                <span><i class="fas fa-sun" alt="claro"></i></span>
+                <span><i class="fas fa-moon" alt="oscuro"></i></span>
               </button>
             </div>
            
@@ -83,50 +89,50 @@
        
         
         
-          <h1 id="titulo">Selecciona tu red </h1>
+          <h1 id="titulo"><i class="fab fa-connectdevelop"></i>
+
+            Selecciona tu red </h1>
     
     </header>
    
     <div class="separador">
 
     </div>
-    <!--Seccion principal-->
-    <section class="seccionPrincipal container"  >
-        <div class="balance " >
-            <h2 id="address">Ingresa tu direccion de Wallet</h2>
+    <main>
+      <!--Seccion principal-->
+      <section class="seccionPrincipal container"  >
+          <div class="balance " >
+              <h2 id="address">Ingresa tu direccion de Wallet</h2>
+              
+              <input id="inputSaldo"placeholder=" ingresar wallet" value="0x0000000000" >
+              <button  id="boton-buscar" class=" btn btn-light btn-outline-dark">Buscar</button>
             
-            <input id="inputSaldo"placeholder=" ingresar wallet" value="0x0000000000" >
-            <button  id="boton-buscar" class=" btn btn-light btn-outline-dark">Buscar</button>
+          </div>
           
-        </div>
-        
-        <!-- aca elegis la red de la wallet que vas a buscar-->
-        <div class="red">
-           
-            <button class="botones-red btn btn-light btn-outline-dark"onclick="cambiarRed('Binance')">Binance Smart Chain</button>
+          <!-- aca elegis la red de la wallet que vas a buscar-->
+          <div class="red">
             
-            <button class="botones-red btn btn-light btn-outline-dark" onclick="cambiarRed('Polygon')">Polygon</button>
-            <button class="botones-red btn btn-light btn-outline-dark"onclick="cambiarRed('Ethereum')">Ethereum</button>
-            <button class="botones-red btn btn-light btn-outline-dark"onclick="cambiarRed('Rootstock')">Rootstock</button>
-        </div>
-        
-    </section>
-    <!--Saldo de tu wallet-->
-    <div class="container"id="verSaldo"></div>
-   
+              <button class="botones-red btn btn-light btn-outline-dark"onclick="cambiarRed('Binance')">Binance Smart Chain</button>
+              
+              <button class="botones-red btn btn-light btn-outline-dark" onclick="cambiarRed('Polygon')">Polygon</button>
+              <button class="botones-red btn btn-light btn-outline-dark"onclick="cambiarRed('Ethereum')">Ethereum</button>
+              <button class="botones-red btn btn-light btn-outline-dark"onclick="cambiarRed('Rootstock')">Rootstock</button>
+          </div>
+          
+      </section>
+      <!--Saldo de tu wallet-->
+      <div class="container"id="verSaldo"></div>
+    
 
 
-   
-     <!--proyectos de la red seleccionada-->
     
-    <section id="mejoresProyectos" class=" contenedor-grid">
-        
-        
-        
-        
-    </section>
+      <!--proyectos de la red seleccionada-->
+      
+      <section id="mejoresProyectos" class=" contenedor-grid">
+          
+      </section>
     
-    
+    </main>
     <!--Footer-->
     <footer class="footer-07">
         <div class="container">
@@ -158,6 +164,10 @@
         </div>
     </footer>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/96b740ba55.js" crossorigin="anonymous"></script>
 <script src="js/red.js"></script>
 <script src="js/miarchivo.js"></script>
 </html>
