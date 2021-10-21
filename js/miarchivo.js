@@ -50,7 +50,8 @@ $('#boton-buscar').on('click',function(){
 
 //carga la red dependiendo de cual elejimos
 const cambiarRed =(red)=>{
-  
+    $("#titulo").hide();
+    $("#mejoresProyectos").hide()
    
     if(red=='Binance'){
         
@@ -82,6 +83,8 @@ const cambiarRed =(red)=>{
 
     $("#verSaldo").html('');
     miRed.mostrarProyectos();
+    $("#mejoresProyectos").fadeIn("fast")
+    $("#titulo").fadeIn("fast");
     
     
     

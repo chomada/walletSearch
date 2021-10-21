@@ -46,8 +46,13 @@ class Red {
     //la idea seria que al ingresar la wallet una API nos devuelva el saldo real
     //luego hago la conversion para ver saldo en dolares y en la moneda de la red
     consultarSaldo(wallet){
+      $("#verSaldo").hide()
         if(this.miRed==''){
-          verSaldo.innerHTML=`<h3 class="alert alert-danger">Debes serleccionar una red primero</h3> `;
+          $("#verSaldo").html(`<h3 class="alert alert-danger">Debes serleccionar una red primero</h3> `)
+          $("#verSaldo").fadeIn("fast", function(){
+            $("#verSaldo").delay(4000).fadeOut("slow")
+          })
+          //verSaldo.innerHTML=`<h3 class="alert alert-danger">Debes serleccionar una red primero</h3> `;
 
         }else{
           if (wallet){
@@ -55,12 +60,9 @@ class Red {
             let total= this.miSaldo/parseFloat(this.miRed.precio);
           
             let verSaldo =document.getElementById("verSaldo");
-            
-            
-            
-            verSaldo.innerHTML=`<h3 class="alert alert-warning">Actualmente te queda ${Number(total.toFixed(8))} ${this.miRed.coin}</h3>`;
-        }
-
+            $("#verSaldo").html(`<h3 class="alert alert-warning">Actualmente te queda ${Number(total.toFixed(8))} ${this.miRed.coin}</h3>`);
+            $("#verSaldo").fadeIn("slow");
+          }
         }
     }
 
@@ -129,7 +131,9 @@ class Red {
   
             }
            }
-           proyectosFavoritos.innerHTML=proyectosTotal;
+           $("#proyectos-favoritos").html(proyectosTotal);
+          
+
     }
 
 
@@ -161,14 +165,17 @@ class Red {
                        </div>
                        <div class="modal-footer">
                          <button type="button" class="btn btn-light btn-outline-dark" data-bs-dismiss="modal">cerrar</button>
-                         <button type="button" class="btn btn-light btn-outline-danger"onclick="agregar('${proyect.name}')">Agregar Favoritos</button>
+                         <button type="button" class="btn btn-light btn-outline-danger"onclick="agregar('${proyect.name}')" data-bs-dismiss="modal">Agregar Favoritos</button>
                        </div>
                      </div>
                    </div>
                  </div></div>`
                 
              }
-             mejoresProyectos.innerHTML= proyectosTotal;
+             $("#mejoresProyectos").html(proyectosTotal)
+             
+            
+            
 
     }
 }

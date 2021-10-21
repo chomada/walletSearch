@@ -11,6 +11,7 @@ const remover=(fav)=>{
 
 function favoritos(){
     miFav.mostrarFavoritos()
+   
   }
   
   //carga los favoritos apenas arranca la pagina

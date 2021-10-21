@@ -21,9 +21,11 @@ h1, h2, h3, h4, h5 {
     text-align: center;
     margin: 0 auto;
 }
+
 #proyectos-favoritos{
     
     padding-bottom: 110px;
+    
 }
 body { 
     font-family: 'Mulish', sans-serif !important;
@@ -95,6 +97,7 @@ body.dark .verMas{
 }
 #verSaldo{
     width: 60%;
+    display: none;
     
     
 }
