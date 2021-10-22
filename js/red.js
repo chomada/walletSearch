@@ -48,13 +48,16 @@ class Red {
     async consultarSaldo(wallet){
       $("#verSaldo").hide();
       $("#verConsejo").hide();
-         if (this.miRed.name=='Binance Smart Chain'){
+      $("#verPrecio").hide();
+     const aver= this.miRed[0];
+    
+         if (this.miRed.binancecoin){
           
    
             const response = await fetch(`https://api.bscscan.com/api?module=account&action=balance&address=${wallet}&apikey=DSPFR6EEJR17HVJPPCBPCB4NKSA5N4UNI5`)
             const datos = await response.json();
             const valor = await(datos.result)/1000000000000000000;
-            this.miSaldo= await Number(valor.toFixed(8));
+            this.miSaldo= await Number(valor.toFixed(6));
               
             if(datos.result==0){
               $("#verSaldo").html(`<h3 class="alert alert-danger">Usted no tiene saldo o no existe esa direccion</h3> `)
@@ -71,8 +74,11 @@ class Red {
               
             }
             else {
-              $("#verSaldo").html(`<h3 class="alert alert-warning">Actualmente te queda ${this.miSaldo} ${this.miRed.coin}</h3>`);
+              let balance= this.miSaldo*this.miRed.binancecoin.usd
+              $("#verSaldo").html(`<h3 class="alert alert-warning">Actualmente te quedan ${this.miSaldo} BNB</h3><h3 class="alert alert-warning">Equivalente a $${Number(balance.toFixed(2))} USD</h3>`);
+              $("#verPrecio").html(`<h6 class="alert alert-warning"><strong>El precio de BNB es de $${this.miRed.binancecoin.usd}</strong></h6>`);
               $("#verSaldo").fadeIn("slow");
+              $("#verPrecio").fadeIn("slow");
             }
           
 
@@ -84,41 +90,15 @@ class Red {
           // $("#verSaldo").fadeIn("slow");
         
       }
-      else if (this.miRed.name=='Polygon'){
+      
         
-       
-        const response = await fetch(`https://api.polygonscan.com/api?module=account&action=balance&address=${wallet}&apikey=WGGDVWCGEMCFFSZNJYVU1CN5NVFZYU723C`)
-        const datos = await response.json();
-        const valor = await(datos.result)/1000000000000000000;
-        this.miSaldo= await Number(valor.toFixed(8));
-  
-       if(datos.result==0){
-        $("#verSaldo").html(`<h3 class="alert alert-danger">Usted no tiene saldo o no existe esa direccion</h3> `)
-        $("#verSaldo").fadeIn("fast", function(){
-          $("#verSaldo").delay(4000).fadeOut("slow")
-        });
-
-      }else if(datos.status==0){
-        $("#verSaldo").html(`<h3 class="alert alert-danger">El formato de la direccion es inválido para la red seleccionada</h3>`);
-        $("#verSaldo").fadeIn("fast", function(){
-          $("#verSaldo").delay(4000).fadeOut("slow")
-        });
-
-        
-      }
-      else {
-        $("#verSaldo").html(`<h3 class="alert alert-warning">Actualmente te queda ${this.miSaldo} ${this.miRed.coin}</h3>`);
-        $("#verSaldo").fadeIn("slow");
-      }
-    
-      }     
-      else if (this.miRed.name=='Ethereum'){
+      else if (this.miRed.ethereum){
         
        
         const response = await fetch(`https://api.etherscan.io/api?module=account&action=balance&address=${wallet}&tag=latest&apikey=EBRZ3ZB43TAG7RSJGB5NTNVGFVG8REAU1F`)
         const datos = await response.json();
         const valor = await(datos.result)/1000000000000000000;
-        this.miSaldo= await Number(valor.toFixed(8));
+        this.miSaldo= await Number(valor.toFixed(6));
   
        if(datos.result==0){
         $("#verSaldo").html(`<h3 class="alert alert-danger">Usted no tiene saldo o no existe esa direccion</h3> `)
@@ -135,8 +115,45 @@ class Red {
         
       }
       else {
-        $("#verSaldo").html(`<h3 class="alert alert-warning">Actualmente te queda ${this.miSaldo} ${this.miRed.coin}</h3>`);
+        let balance= this.miSaldo*this.miRed.ethereum.usd
+        $("#verSaldo").html(`<h3 class="alert alert-warning">Actualmente te quedan ${this.miSaldo} ETH</h3><h3 class="alert alert-warning">Equivalente a $${Number(balance.toFixed(2))} USD</h3>`);
+        $("#verPrecio").html(`<h6 class="alert alert-warning"><strong>El precio de ETH es de $${this.miRed.ethereum.usd}</strong></h6>`);
+        
         $("#verSaldo").fadeIn("slow");
+        $("#verPrecio").fadeIn("slow");
+        
+      }
+    
+      }  
+      else{
+        
+       
+        const response = await fetch(`https://api.polygonscan.com/api?module=account&action=balance&address=${wallet}&apikey=WGGDVWCGEMCFFSZNJYVU1CN5NVFZYU723C`)
+        const datos = await response.json();
+        const valor = await(datos.result)/1000000000000000000;
+        this.miSaldo= await Number(valor.toFixed(6));
+  
+       if(datos.result==0){
+        $("#verSaldo").html(`<h3 class="alert alert-danger">Usted no tiene saldo o no existe esa direccion</h3> `)
+        $("#verSaldo").fadeIn("fast", function(){
+          $("#verSaldo").delay(4000).fadeOut("slow")
+        });
+
+      }else if(datos.status==0){
+        $("#verSaldo").html(`<h3 class="alert alert-danger">El formato de la direccion es inválido para la red seleccionada</h3>`);
+        $("#verSaldo").fadeIn("fast", function(){
+          $("#verSaldo").delay(4000).fadeOut("slow")
+        });
+
+        
+      }
+      else {
+        //let balance= this.miSaldo*this.miRed.matic-network.usd
+        console.log(this.miRed)
+        $("#verSaldo").html(`<h3 class="alert alert-warning">Actualmente te quedan ${this.miSaldo} MATIC</h3><h3 class="alert alert-warning">Equivalente a $$ USD</h3>`);
+        $("#verPrecio").html(`<h6 class="alert alert-warning"><strong>El precio de MATIC es de $$</strong></h6>`); //this.miRed.matic-network.usd
+        $("#verSaldo").fadeIn("slow");
+        $("#verPrecio").fadeIn("slow");
       }
     
       }     
@@ -148,6 +165,12 @@ class Red {
 
       
       if (nombreRed=='Binance'){
+        const binance = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=binancecoin&vs_currencies=usd`);
+        const datosRed= await binance.json();
+        
+        this.miRed=datosRed;
+        
+
         const response = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&category=binance-smart-chain&order=market_cap_desc&per_page=1&page=1&sparkline=false`)
         const datos = await response.json();
                this.proyectos=datos;
@@ -155,6 +178,12 @@ class Red {
         await this.mostrarProyectos();
         
       }else if (nombreRed=='Polygon'){
+        const polygon = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=matic-network&vs_currencies=usd`);
+        const datosRed= await polygon.json();
+       
+        this.miRed=datosRed;
+        
+
         const response = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&category=polygon-ecosystem&order=market_cap_desc&per_page=1&page=1&sparkline=false`)
         const datos = await response.json();
                this.proyectos=datos;
@@ -163,7 +192,13 @@ class Red {
         
       }
       else if (nombreRed=='Ethereum'){
-        const response = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&category=smart-contract-platform&order=market_cap_desc&per_page=1&page=1&sparkline=false`)
+        const ethereum = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd`);
+        const datosRed= await ethereum.json();
+        
+        this.miRed=datosRed;
+        
+
+        const response = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&category=decentralized-finance-defi&order=market_cap_desc&per_page=1&page=1&sparkline=false`)
         const datos = await response.json();
                this.proyectos=datos;
         
@@ -210,7 +245,7 @@ class Red {
 
     //muestra los proyectos favoritos 
     mostrarFavoritos(){
-          let proyectosFavoritos =document.getElementById("proyectos-favoritos")
+         
 
           let proyectosTotal="";
           if (this.favoritos.length==0){
@@ -262,8 +297,16 @@ class Red {
                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                        </div>
                        <div class="modal-body">
-                       ${proyect.symbol.toUpperCase()} - ${proyect.current_price}
+                       <h6>Simbolo: ${proyect.symbol.toUpperCase()}</h6>
+                       <h6>Market Cap: $${proyect.market_cap}</h6>
+                       <h6>Total Supply: $${proyect.total_supply}</h6>
+                       <h6>ATH: $${proyect.ath}</h6>
+                       <h6>Precio actual: $${proyect.current_price}</h6>
+                       <h6><em>${proyect.last_updated}</em></h6>
+
+                       
                        </div>
+                       
                        <div class="modal-footer">
                          <button type="button" class="btn btn-light btn-outline-dark" data-bs-dismiss="modal">cerrar</button>
                          <button type="button" class="btn btn-light btn-outline-danger"onclick="agregar('${proyect.name}')" data-bs-dismiss="modal">Agregar Favoritos</button>

@@ -108,6 +108,10 @@ body.dark .verMas{
     display: none;
        
 }
+#verPrecio{
+    width: 80%;
+    display: none;
+}
 #verConsejo{
     
     display: none;
