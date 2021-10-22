@@ -11,10 +11,9 @@ if(localStorage.darkMode){
     miRed.miDark=JSON.parse(localStorage.darkMode);
     
 }
-if(localStorage.walletGuardada){
-    
-    $('#inputWallet').val(JSON.parse(localStorage.walletGuardada))
-}
+
+
+
 miRed.cargarModo()
 
 //la idea de la pagina es ingresar tu direccion de wallet y seleccionar la red en la que operas, y que te muestre el saldo que te queda en la red,etc.
@@ -57,35 +56,61 @@ $('#boton-buscar').on('click',function(){
     $("#mejoresProyectos").hide()
    
     if(red=='Binance'){
+        if(localStorage.walletBNB){
+    
+            $('#inputWallet').val(JSON.parse(localStorage.walletBNB))
+           
+        }else{
+            $('#inputWallet').val('0x6a967a86436ff75bfd943b1c546b6c26582de9a8')
+            $("#verConsejo").html(`<h6 class="alert alert-secondary">Si no tenes una wallet podes buscar esta de prueba</h6>`);
+    
+
+        }
         $("#verConsejo").hide();
-        $('#inputWallet').val('0x6a967a86436ff75bfd943b1c546b6c26582de9a8')
+       
    
         miRed.cargarProyectos('Binance')
         
         document.getElementById('titulo').innerHTML='Estas en la Red de BSC';
         document.getElementById('address').innerHTML='Cuanto Gas te queda en BNB?';
-        $("#verConsejo").html(`<h6 class="alert alert-secondary">Si no tenes una wallet podes buscar esta de prueba</h6>`);
+      
         $("#verConsejo").fadeIn("slow");
         
         
     }else if(red=='Polygon'){
+
+        if(localStorage.walletMATIC){
+    
+            $('#inputWallet').val(JSON.parse(localStorage.walletMATIC))
+        }else{
+            $('#inputWallet').val('0xee68e4c594b96efc19a9d7d2a33901651ce967a2')
+            $("#verConsejo").html(`<h6 class="alert alert-secondary">Si no tenes una wallet podes buscar esta de prueba</h6>`);
+
+        }
         $("#verConsejo").hide();
-        $('#inputWallet').val('0xee68e4c594b96efc19a9d7d2a33901651ce967a2')
+      
         miRed.cargarProyectos('Polygon')
         
         document.getElementById('titulo').innerHTML='Estas en la Red de Polygon';
         document.getElementById('address').innerHTML='Cuanto Gas te queda en MATIC?';
-        $("#verConsejo").html(`<h6 class="alert alert-secondary">Si no tenes una wallet podes buscar esta de prueba</h6>`);
+       
         $("#verConsejo").fadeIn("slow");
     }
     else if(red=='Ethereum'){
+        if(localStorage.walletETH){
+    
+            $('#inputWallet').val(JSON.parse(localStorage.walletETH))
+        }else{
+            $('#inputWallet').val('0x9562a71660d31728f904e6790465b2613fd1e579')
+            $("#verConsejo").html(`<h6 class="alert alert-secondary">Si no tenes una wallet podes buscar esta de prueba</h6>`);
+        }
         $("#verConsejo").hide();
-        $('#inputWallet').val('0x9562a71660d31728f904e6790465b2613fd1e579')
+      
         miRed.cargarProyectos('Ethereum')
        
         document.getElementById('titulo').innerHTML='Estas en la Red de Ethereum';
         document.getElementById('address').innerHTML='Cuanto Gas te queda en ETH';
-        $("#verConsejo").html(`<h6 class="alert alert-secondary">Si no tenes una wallet podes buscar esta de prueba</h6>`);
+        
         $("#verConsejo").fadeIn("slow");
     }else if(red=='Rootstock'){
         

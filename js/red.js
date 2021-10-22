@@ -43,14 +43,12 @@ class Red {
         btnSwitch.classList.add('suichardi');
         }
     }
-
-    //la idea seria que al ingresar la wallet una API nos devuelva el saldo real
-    //luego hago la conversion para ver saldo en dolares y en la moneda de la red
+//consulto el saldo de la wallet ingresada
     async consultarSaldo(wallet){
       $("#verSaldo").hide();
       $("#verConsejo").hide();
       $("#verPrecio").hide();
-      localStorage.walletGuardada=JSON.stringify(wallet);
+      
       
     
          if (this.miRed.binancecoin){
@@ -76,21 +74,18 @@ class Red {
               
             }
             else {
+              if(wallet!=='0x6a967a86436ff75bfd943b1c546b6c26582de9a8'){
+                localStorage.walletBNB=JSON.stringify(wallet);
+
+              }
+              
               let balance= this.miSaldo*this.miRed.binancecoin.usd
               $("#verSaldo").html(`<h3 class="alert alert-warning">Actualmente te quedan ${this.miSaldo} BNB</h3><h3 class="alert alert-warning">Equivalente a $${Number(balance.toFixed(2))} USD</h3>`);
               $("#verPrecio").html(`<h6 class="alert alert-warning"><strong>El precio de BNB es de $${this.miRed.binancecoin.usd}</strong></h6>`);
               $("#verSaldo").fadeIn("slow");
               $("#verPrecio").fadeIn("slow");
             }
-          
-
-          // this.miSaldo=200;
-          // let total= this.miSaldo/parseFloat(this.miRed.precio);
-        
-          // let verSaldo =document.getElementById("verSaldo");
-          // $("#verSaldo").html(`<h3 class="alert alert-warning">Actualmente te queda ${Number(total.toFixed(8))} ${this.miRed.coin}</h3>`);
-          // $("#verSaldo").fadeIn("slow");
-        
+                  
       }
       
         
@@ -117,6 +112,9 @@ class Red {
         
       }
       else {
+        if(wallet!=='0x9562a71660d31728f904e6790465b2613fd1e579'){
+          localStorage.walletETH=JSON.stringify(wallet);
+        }
         let balance= this.miSaldo*this.miRed.ethereum.usd
         $("#verSaldo").html(`<h3 class="alert alert-warning">Actualmente te quedan ${this.miSaldo} ETH</h3><h3 class="alert alert-warning">Equivalente a $${Number(balance.toFixed(2))} USD</h3>`);
         $("#verPrecio").html(`<h6 class="alert alert-warning"><strong>El precio de ETH es de $${this.miRed.ethereum.usd}</strong></h6>`);
@@ -150,7 +148,10 @@ class Red {
         
       }
       else {
-        //let balance= this.miSaldo*this.miRed.matic-network.usd
+        if(wallet!=='0xee68e4c594b96efc19a9d7d2a33901651ce967a2'){
+          localStorage.walletMATIC=JSON.stringify(wallet);
+        }
+          //let balance= this.miSaldo*this.miRed.matic-network.usd
         console.log(this.miRed)
         $("#verSaldo").html(`<h3 class="alert alert-warning">Actualmente te quedan ${this.miSaldo} MATIC</h3><h3 class="alert alert-warning">Equivalente a $$ USD</h3>`);
         $("#verPrecio").html(`<h6 class="alert alert-warning"><strong>El precio de MATIC es de $$</strong></h6>`); //this.miRed.matic-network.usd
