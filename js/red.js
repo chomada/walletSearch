@@ -46,8 +46,8 @@ class Red {
     //la idea seria que al ingresar la wallet una API nos devuelva el saldo real
     //luego hago la conversion para ver saldo en dolares y en la moneda de la red
     async consultarSaldo(wallet){
-      $("#verSaldo").hide()
-        
+      $("#verSaldo").hide();
+      $("#verConsejo").hide();
          if (this.miRed.name=='Binance Smart Chain'){
           
    

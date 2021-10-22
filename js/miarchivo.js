@@ -60,6 +60,7 @@ const consultarSaldo = ()=>{
 //agrego boton para buscar wallet y ver el saldo
 $('#boton-buscar').on('click',function(){
     consultarSaldo();
+
 });
 
 //carga la red dependiendo de cual elejimos
@@ -69,29 +70,34 @@ $('#boton-buscar').on('click',function(){
    
     if(red=='Binance'){
         $("#verConsejo").hide();
+        $('#inputSaldo').val('0x6a967a86436ff75bfd943b1c546b6c26582de9a8')
+   
         miRed.cargarProyectos('Binance')
         miRed.cargarRed(binance)
         document.getElementById('titulo').innerHTML='Estas en la Red de BSC';
         document.getElementById('address').innerHTML='Cuanto Gas te queda en BNB?';
-        $("#verConsejo").html(`<h6 class="alert alert-secondary">Si no tenes una wallet podes buscar esta de prueba 0x6a967a86436ff75bfd943b1c546b6c26582de9a8</h6>`);
+        $("#verConsejo").html(`<h6 class="alert alert-secondary">Si no tenes una wallet podes buscar esta de prueba</h6>`);
         $("#verConsejo").fadeIn("slow");
+        
         
     }else if(red=='Polygon'){
         $("#verConsejo").hide();
+        $('#inputSaldo').val('0xee68e4c594b96efc19a9d7d2a33901651ce967a2')
         miRed.cargarProyectos('Polygon')
         miRed.cargarRed(polygon)
         document.getElementById('titulo').innerHTML='Estas en la Red de Polygon';
         document.getElementById('address').innerHTML='Cuanto Gas te queda en MATIC?';
-        $("#verConsejo").html(`<h6 class="alert alert-secondary">Si no tenes una wallet podes buscar esta de prueba 0xee68e4c594b96efc19a9d7d2a33901651ce967a2</h6>`);
+        $("#verConsejo").html(`<h6 class="alert alert-secondary">Si no tenes una wallet podes buscar esta de prueba</h6>`);
         $("#verConsejo").fadeIn("slow");
     }
     else if(red=='Ethereum'){
         $("#verConsejo").hide();
+        $('#inputSaldo').val('0x9562a71660d31728f904e6790465b2613fd1e579')
         miRed.cargarProyectos('Ethereum')
         miRed.cargarRed(ethereum);
         document.getElementById('titulo').innerHTML='Estas en la Red de Ethereum';
         document.getElementById('address').innerHTML='Cuanto Gas te queda en ETH';
-        $("#verConsejo").html(`<h6 class="alert alert-secondary">Si no tenes una wallet podes buscar esta de prueba 0x9562a71660d31728f904e6790465b2613fd1e579</h6>`);
+        $("#verConsejo").html(`<h6 class="alert alert-secondary">Si no tenes una wallet podes buscar esta de prueba</h6>`);
         $("#verConsejo").fadeIn("slow");
     }else if(red=='Rootstock'){
         
