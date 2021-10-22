@@ -13,6 +13,7 @@ class Red {
         this.favoritos=[];
         this.miDark='';
         
+        
     }
     //con esto puedo cambiar el dark mode y guardarlo en el local storage
     cambiarModo(){
@@ -49,7 +50,8 @@ class Red {
       $("#verSaldo").hide();
       $("#verConsejo").hide();
       $("#verPrecio").hide();
-     const aver= this.miRed[0];
+      localStorage.walletGuardada=JSON.stringify(wallet);
+      
     
          if (this.miRed.binancecoin){
           

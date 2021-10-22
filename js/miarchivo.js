@@ -11,6 +11,10 @@ if(localStorage.darkMode){
     miRed.miDark=JSON.parse(localStorage.darkMode);
     
 }
+if(localStorage.walletGuardada){
+    
+    $('#inputWallet').val(JSON.parse(localStorage.walletGuardada))
+}
 miRed.cargarModo()
 
 //la idea de la pagina es ingresar tu direccion de wallet y seleccionar la red en la que operas, y que te muestre el saldo que te queda en la red,etc.
@@ -22,7 +26,7 @@ miRed.cargarModo()
 
 const consultarSaldo = ()=>{
    
-    const valor= document.getElementById('inputSaldo').value;
+    const valor= document.getElementById('inputWallet').value;
 
     if(!miRed.miRed){
         $("#verSaldo").html(`<h3 class="alert alert-danger">Debes seleccionar una red primero</h3> `)
@@ -54,7 +58,7 @@ $('#boton-buscar').on('click',function(){
    
     if(red=='Binance'){
         $("#verConsejo").hide();
-        $('#inputSaldo').val('0x6a967a86436ff75bfd943b1c546b6c26582de9a8')
+        $('#inputWallet').val('0x6a967a86436ff75bfd943b1c546b6c26582de9a8')
    
         miRed.cargarProyectos('Binance')
         
@@ -66,7 +70,7 @@ $('#boton-buscar').on('click',function(){
         
     }else if(red=='Polygon'){
         $("#verConsejo").hide();
-        $('#inputSaldo').val('0xee68e4c594b96efc19a9d7d2a33901651ce967a2')
+        $('#inputWallet').val('0xee68e4c594b96efc19a9d7d2a33901651ce967a2')
         miRed.cargarProyectos('Polygon')
         
         document.getElementById('titulo').innerHTML='Estas en la Red de Polygon';
@@ -76,7 +80,7 @@ $('#boton-buscar').on('click',function(){
     }
     else if(red=='Ethereum'){
         $("#verConsejo").hide();
-        $('#inputSaldo').val('0x9562a71660d31728f904e6790465b2613fd1e579')
+        $('#inputWallet').val('0x9562a71660d31728f904e6790465b2613fd1e579')
         miRed.cargarProyectos('Ethereum')
        
         document.getElementById('titulo').innerHTML='Estas en la Red de Ethereum';
