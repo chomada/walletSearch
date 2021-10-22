@@ -7,6 +7,10 @@ html{
     
     
 }
+.botonDisabled {
+    
+    border-color: #212529 !important;
+}
 #arribaDeTodo{
     position: absolute;
     top:0;
@@ -81,6 +85,10 @@ body.dark .btn-light {
     background-color: #343d5b;
 
 }
+body.dark .botonDisabled {
+    
+    border-color: white !important;
+}
 body.dark .btn-outline-dark{
     background-color:#212529;
     border-color: white;
@@ -98,8 +106,12 @@ body.dark .verMas{
 #verSaldo{
     width: 60%;
     display: none;
+       
+}
+#verConsejo{
+    width: 60%;
     
-    
+       
 }
 body::after {
     content: ""; 

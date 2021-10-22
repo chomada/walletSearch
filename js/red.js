@@ -45,24 +45,64 @@ class Red {
 
     //la idea seria que al ingresar la wallet una API nos devuelva el saldo real
     //luego hago la conversion para ver saldo en dolares y en la moneda de la red
-    consultarSaldo(wallet){
+    async consultarSaldo(wallet){
       $("#verSaldo").hide()
         if(this.miRed==''){
-          $("#verSaldo").html(`<h3 class="alert alert-danger">Debes serleccionar una red primero</h3> `)
+          $("#verSaldo").html(`<h3 class="alert alert-danger">Debes seleccionar una red primero</h3> `)
           $("#verSaldo").fadeIn("fast", function(){
             $("#verSaldo").delay(4000).fadeOut("slow")
-          })
-          //verSaldo.innerHTML=`<h3 class="alert alert-danger">Debes serleccionar una red primero</h3> `;
+          });
 
-        }else{
-          if (wallet){
-            this.miSaldo=200;
-            let total= this.miSaldo/parseFloat(this.miRed.precio);
+        }else if (this.miRed.name=='Binance Smart Chain'){
           
-            let verSaldo =document.getElementById("verSaldo");
-            $("#verSaldo").html(`<h3 class="alert alert-warning">Actualmente te queda ${Number(total.toFixed(8))} ${this.miRed.coin}</h3>`);
-            $("#verSaldo").fadeIn("slow");
-          }
+   
+              const response = await fetch(`https://api.bscscan.com/api?module=account&action=balance&address=${wallet}&apikey=DSPFR6EEJR17HVJPPCBPCB4NKSA5N4UNI5`)
+              const datos = await response.json();
+              const valor = await(datos.result)/1000000000000000000;
+              this.miSaldo= await Number(valor.toFixed(8));
+              console.log(`los datos son: ${(datos.result)/1000000000000000000}`)                
+
+             $("#verSaldo").html(`<h3 class="alert alert-warning">Actualmente te queda ${this.miSaldo} ${this.miRed.coin}</h3>`);
+             $("#verSaldo").fadeIn("slow");
+
+            // console.log(`la wallet es ${wallet}`)
+            // const API = `https://api.bscscan.com/api?module=account&action=balance&address=${wallet}&apikey=DSPFR6EEJR17HVJPPCBPCB4NKSA5N4UNI5`
+         
+            // $.get(API, function(respuesta,estado){
+            //   if (estado==="success"){
+            //     let datos =respuesta;
+            //     let saldo= (datos.result)/1000000000000000000;
+            //     this.miSaldo= Number(saldo.toFixed(8));
+              
+            //     console.log(`los datos son: ${(datos.result)/1000000000000000000}`)                
+            //   }
+            
+            // });
+            // $("#verSaldo").html(`<h3 class="alert alert-warning">Actualmente te queda ${this.miSaldo} ${this.miRed.coin}</h3>`);
+            // $("#verSaldo").fadeIn("slow");
+
+
+
+
+            // this.miSaldo=200;
+            // let total= this.miSaldo/parseFloat(this.miRed.precio);
+          
+            // let verSaldo =document.getElementById("verSaldo");
+            // $("#verSaldo").html(`<h3 class="alert alert-warning">Actualmente te queda ${Number(total.toFixed(8))} ${this.miRed.coin}</h3>`);
+            // $("#verSaldo").fadeIn("slow");
+          
+        }
+        else if (this.miRed.name=='Polygon'){
+          
+          console.log(wallet)
+          const response = await fetch(`https://api.polygonscan.com/api?module=account&action=balance&address=${wallet}&apikey=WGGDVWCGEMCFFSZNJYVU1CN5NVFZYU723C`)
+          const datos = await response.json();
+          const valor = await(datos.result)/1000000000000000000;
+          this.miSaldo= await Number(valor.toFixed(8));
+          console.log(`los datos son: ${(datos.result)/1000000000000000000}`)                
+
+         $("#verSaldo").html(`<h3 class="alert alert-warning">Actualmente te queda ${this.miSaldo} ${this.miRed.coin}</h3>`);
+         $("#verSaldo").fadeIn("slow");
         }
     }
 

@@ -83,8 +83,8 @@ const cambiarRed =(red)=>{
 
     $("#verSaldo").html('');
     miRed.mostrarProyectos();
-    $("#mejoresProyectos").fadeIn("fast")
-    $("#titulo").fadeIn("fast");
+    $("#mejoresProyectos").fadeIn("slow")
+    $("#titulo").fadeIn("slow");
     
     
     
