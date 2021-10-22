@@ -110,6 +110,7 @@ body.dark .verMas{
 }
 #verConsejo{
     width: 80%;
+    display: none;
     
        
 }
