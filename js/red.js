@@ -151,10 +151,10 @@ class Red {
         if(wallet!=='0xee68e4c594b96efc19a9d7d2a33901651ce967a2'){
           localStorage.walletMATIC=JSON.stringify(wallet);
         }
-          //let balance= this.miSaldo*this.miRed.matic-network.usd
+        let balance= this.miSaldo*this.miRed['matic-network'].usd
         console.log(this.miRed)
-        $("#verSaldo").html(`<h3 class="alert alert-warning">Actualmente te quedan ${this.miSaldo} MATIC</h3><h3 class="alert alert-warning">Equivalente a $$ USD</h3>`);
-        $("#verPrecio").html(`<h6 class="alert alert-warning"><strong>El precio de MATIC es de $$</strong></h6>`); //this.miRed.matic-network.usd
+        $("#verSaldo").html(`<h3 class="alert alert-warning">Actualmente te quedan ${this.miSaldo} MATIC</h3><h3 class="alert alert-warning">Equivalente a $${balance} USD</h3>`);
+        $("#verPrecio").html(`<h6 class="alert alert-warning"><strong>El precio de MATIC es de $${this.miRed['matic-network'].usd}</strong></h6>`);
         $("#verSaldo").fadeIn("slow");
         $("#verPrecio").fadeIn("slow");
       }
