@@ -3,6 +3,7 @@
 // la red ingresada
 // los proyectos de la red ingresada
 // los proyectos favoritos que voy seleccionando
+// el dark mode
 
 class Red {
 
