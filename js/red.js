@@ -75,7 +75,7 @@ class Red {
               
             }
             else {
-              if(wallet!=='0x6a967a86436ff75bfd943b1c546b6c26582de9a8'){
+              if(wallet!=='0xccc5878a0923f3e5b12c3b9d18e3f76dcffcbd22'){
                 localStorage.walletBNB=JSON.stringify(wallet);
 
               }
